@@ -1,0 +1,91 @@
+\documentclass[12pt]{article}
+
+% Extend margins
+% \usepackage{fullpage}
+
+% Prevent words to overflow over the margin
+% \sloppy
+\emergencystretch 3em
+
+% Images
+\usepackage{graphicx}
+
+% Make sections heading bold sans serif
+\usepackage{abstract} % Make abstract
+% Make section titles bold
+\renewcommand\abstractnamefont{\bfseries\sffamily}
+% section title fonts
+\usepackage{titlesec}
+\def\sectionfont{\sffamily\Large\bfseries\boldmath}
+\def\subsectionfont{\sffamily\large\bfseries\boldmath}
+\def\paragraphfont{\sffamily\normalsize\bfseries\boldmath}
+\titleformat*{\section}{\sectionfont}
+\titleformat*{\subsection}{\subsectionfont}
+\titleformat*{\subsubsection}{\paragraphfont}
+\titleformat*{\paragraph}{\paragraphfont}
+\titleformat*{\subparagraph}{\paragraphfont}
+\usepackage[small,labelfont={bf,sf}]{caption}  % Change captions
+
+% Math
+\usepackage{amsmath,amssymb,amsthm,enumitem, mathtools}
+\usepackage{multirow}
+\usepackage{algorithm}% http://ctan.org/pkg/algorithms
+\usepackage[noend]{algpseudocode}
+
+% Nice tables
+\usepackage[round-mode=places, round-precision=2,
+            scientific-notation = true,
+            %scientific-notation = fixed
+            table-format=-1.2e-1
+            ]{siunitx}
+\usepackage{csvsimple}	% reading CSV files in tables
+\usepackage{booktabs}   % Nicer Tables
+\usepackage{adjustbox}  % To adjust table length
+
+% Tikz
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usetikzlibrary{positioning}
+\definecolor{splitColor}{RGB}{202, 200, 200}
+\definecolor{classColor1}{RGB}{163, 31, 52}
+\definecolor{classColor2}{RGB}{4, 30, 65}
+\definecolor{classColor3}{RGB}{0, 105, 143}
+\definecolor{classColor4}{RGB}{4, 30, 65}
+\usepackage{hyperref}
+
+% Acronyms
+\usepackage[xindy, acronyms]{glossaries}   % Glossaries and Acronyms
+\makeglossaries
+
+% Todo notes
+\definecolor{borderBoxTodo}{rgb}{0,0.309,0.6}
+\definecolor{backgroundBoxTodo}{rgb}{0.701,0.854,1}
+\definecolor{lineColorTodo}{rgb}{0.701,0.854,1}
+\RequirePackage[colorinlistoftodos, backgroundcolor=backgroundBoxTodo, bordercolor = borderBoxTodo, linecolor = lineColorTodo]{todonotes}
+\newcommand{\NoteBart}[1]{\todo[inline, caption={}]{Bartolomeo: #1}}
+\newcommand{\todofigure}[0]{\missingfigure[figwidth=\textwidth, figcolor=white]{} }
+
+% Definitions
+\input definitions.tex
+
+% Bibliography
+\bibliographystyle{alpha}
+
+
+\title{\bfseries \sffamily {{cookiecutter.title}}}
+\author{{{cookiecutter.author}}}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We present...
+\end{abstract}
+
+
+% Sections
+\input{sections/introduction.tex}
+
+\bibliography{bibliography}
+
+\end{document}
