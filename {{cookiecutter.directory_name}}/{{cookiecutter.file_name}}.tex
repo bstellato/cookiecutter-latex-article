@@ -1,78 +1,39 @@
 \documentclass[12pt]{article}
 
-% Extend margins
-% \usepackage{fullpage}
-
-% Prevent words to overflow over the margin
-% \sloppy
-\emergencystretch 3em
-
 % Images
 \usepackage{graphicx}
 
-% Make sections heading bold sans serif
-\usepackage{abstract} % Make abstract
-% Make section titles bold
-\renewcommand\abstractnamefont{\bfseries\sffamily}
-% section title fonts
-\usepackage{titlesec}
-\def\sectionfont{\sffamily\Large\bfseries\boldmath}
-\def\subsectionfont{\sffamily\large\bfseries\boldmath}
-\def\paragraphfont{\sffamily\normalsize\bfseries\boldmath}
-\titleformat*{\section}{\sectionfont}
-\titleformat*{\subsection}{\subsectionfont}
-\titleformat*{\subsubsection}{\paragraphfont}
-\titleformat*{\paragraph}{\paragraphfont}
-\titleformat*{\subparagraph}{\paragraphfont}
-\usepackage[small,labelfont={bf,sf}]{caption}  % Change captions
-
 % Math
-\usepackage{amsmath,amssymb,amsthm,enumitem, mathtools}
+\usepackage{amsmath,amssymb,amsthm,enumitem,mathtools}
 \usepackage{multirow}
 \usepackage{algorithm}% http://ctan.org/pkg/algorithms
-\usepackage[noend]{algpseudocode}
+\usepackage[noend]{algpseudocode} % Avoid "end" and make it look cleaner
 
-% Nice tables
-\usepackage[round-mode=places, round-precision=2,
-            scientific-notation = true,
-            %scientific-notation = fixed
-            table-format=-1.2e-1
-            ]{siunitx}
+% Tables
 \usepackage{csvsimple}	% reading CSV files in tables
 \usepackage{booktabs}   % Nicer Tables
 \usepackage{adjustbox}  % To adjust table length
 
-% Tikz
-\usepackage{tikz}
-\usetikzlibrary{calc}
-\usetikzlibrary{positioning}
-\definecolor{splitColor}{RGB}{202, 200, 200}
-\definecolor{classColor1}{RGB}{163, 31, 52}
-\definecolor{classColor2}{RGB}{4, 30, 65}
-\definecolor{classColor3}{RGB}{0, 105, 143}
-\definecolor{classColor4}{RGB}{4, 30, 65}
+% Hyperreferences
 \usepackage{hyperref}
 
 % Acronyms
 \usepackage[xindy, acronyms]{glossaries}   % Glossaries and Acronyms
 \makeglossaries
 
-% Todo notes
-\definecolor{borderBoxTodo}{rgb}{0,0.309,0.6}
-\definecolor{backgroundBoxTodo}{rgb}{0.701,0.854,1}
-\definecolor{lineColorTodo}{rgb}{0.701,0.854,1}
-\RequirePackage[colorinlistoftodos, backgroundcolor=backgroundBoxTodo, bordercolor = borderBoxTodo, linecolor = lineColorTodo]{todonotes}
+% Todos
+\usepackage{todonotes}
 \newcommand{\mynote}[1]{\todo[inline, caption={}]{ {{cookiecutter.author}} : #1}}
 \newcommand{\todofigure}[0]{\missingfigure[figwidth=\textwidth, figcolor=white]{} }
 
 % Definitions
-\input definitions.tex
+\input{definitions.tex}
 
 % Bibliography
 \bibliographystyle{alpha}
 
 
-\title{\bfseries \sffamily {{cookiecutter.title}} }
+\title{ {{cookiecutter.title}} }
 \author{ {{cookiecutter.author}} }
 
 \begin{document}
@@ -82,15 +43,48 @@
 We present...
 \end{abstract}
 
+% Table of contents
+%\newpage \tableofcontents \newpage
 
-% Sections
-\input{sections/introduction.tex}
 
+\section{Introduction}
+
+Let's try one acronym,~\gls{LO}. Let's try one reference~\cite{conforti2014}.
+
+\mynote{Here is a todo note.}
+
+
+\subsection{Related work}
+
+\section{Our method}
+
+\mynote{Here is another todo note.}
+
+\todofigure
+
+\section{Results}
+Here is an example table.
+
+\begin{table}
+  \centering
+  \caption{Example table.}
+  \label{tab:tablelabel}
+  \begin{tabular}{ll}
+    \toprule
+    $A$ & $B$\\
+    \midrule
+    % Add directly from csv reader
+    % the csv file has names colnameA, colnameB
+    \csvreader[head to column names, late after line=\\]{./data/data.csv}{
+    colnameA=\colA,
+    colnameB=\colB
+    }{\colA & \colB}
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+
+% Bibliography
 \bibliography{bibliography}
 
 \end{document}
-
-%%% Local Variables:
-%%% mode: latex
-%%% TeX-master: t
-%%% End:
