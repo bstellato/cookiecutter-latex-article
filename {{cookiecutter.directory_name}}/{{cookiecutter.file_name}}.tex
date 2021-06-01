@@ -1,7 +1,8 @@
 \documentclass[12pt]{article}
 
-% Images
+% Images and plots
 \usepackage{graphicx}
+\usepackage{pgfplots}
 
 % Math
 \usepackage{amsmath,amssymb,amsthm,enumitem,mathtools}
@@ -93,6 +94,40 @@ Here is an example table.
     \bottomrule
   \end{tabular}
 \end{table}
+
+Figure~\ref{fig:tikz} show an example of how to use TikZ.
+\begin{figure}
+	\centering
+  \begin{tikzpicture}
+    \begin{axis}[
+        samples=100, % you don't need 1000, it only slows things down
+        ticks=none,
+        xmin = -2.5, xmax = 2.5,
+        ymin = -1, ymax = 3,
+        axis x line=middle,
+        axis y line=middle,
+	xlabel={$x$},
+        ylabel={$y$},
+	x label style={
+	  at={(axis cs:2,-0.2)},
+	  anchor=west,
+	},
+	declare function={f(\x)=abs(\x);},
+        ]
+      \addplot[thick,color=black, mark=none, domain=-1:1, -,shorten >=1pt] {f(x)};
+      \draw[dashed] (axis cs:-1,0) node[below=0.5mm] {$-1$} -- (axis cs:-1,2);
+      \draw[thick] (axis cs:-1,1) -- (axis cs:-1,2);
+      \draw[dashed] (axis cs:1,0) node[below=0.5mm] {$1$} -- (axis cs:1,2);
+      \draw[thick] (axis cs:1,1) -- (axis cs:1,2);
+      \addplot[mark=*,fill=black] coordinates {(0,0)};
+      \addplot[mark=*,fill=black] coordinates {(1,1)};
+      \addplot[mark=*,fill=black] coordinates {(-1,1)};
+      \draw[->, thick](axis cs:2,2)--(axis cs:2.3,2.2) node[below=0.5mm](q){$\alpha$};
+    \end{axis}
+  \end{tikzpicture}
+  \caption{Example of TikZ figure.}
+  \label{fig:tikz}
+  \end{figure}
 
 
 % Bibliography
