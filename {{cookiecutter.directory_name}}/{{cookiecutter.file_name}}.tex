@@ -28,8 +28,9 @@
 \makeglossaries
 
 % Todos
-\usepackage{todonotes}
+\usepackage[textsize=tiny]{todonotes}
 \newcommand{\mynote}[1]{\todo[inline, caption={}]{ {{cookiecutter.author}} : #1}}
+\newcommand{\mynoteside}[1]{\todo[caption={}]{ {{cookiecutter.author}} : #1}}
 \newcommand{\todofigure}[0]{\missingfigure[figwidth=\textwidth, figcolor=white]{} }
 
 % Definitions
