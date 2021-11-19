@@ -10,8 +10,9 @@ jobs:
         uses: xu-cheng/latex-action@v2
         with:
           root_file: {{cookiecutter.file_name}}.tex
-      - Upload PDF artifact
+      - name: Upload PDF artifact
         uses: actions/upload-artifact@v2
         with:
           name: PDF
           path: main.pdf
+
