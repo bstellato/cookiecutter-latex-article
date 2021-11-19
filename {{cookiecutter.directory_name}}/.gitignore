@@ -201,4 +201,4 @@ TSWLatexianTemp*
 _region_*
 
 # PDF files
-# *.pdf
+{{cookiecutter.file_name}}.pdf

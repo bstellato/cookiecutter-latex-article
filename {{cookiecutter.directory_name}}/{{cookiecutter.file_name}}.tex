@@ -109,7 +109,7 @@ Here is an example table.
     \midrule
     % Add directly from csv reader
     % the csv file has names colnameA, colnameB
-    \csvreader[head to column names, late after line=\\]{./data/data.csv}{
+    \csvreader[head to column names, late after line=\\]{./data/table.csv}{
     colnameA=\colA,
     colnameB=\colB
     }{\colA & \colB}
@@ -117,7 +117,7 @@ Here is an example table.
   \end{tabular}
 \end{table}
 
-Figure~\ref{fig:tikz} show an example of how to use TikZ.
+Figure~\ref{fig:tikz} shows an example of how to use TikZ.
 \begin{figure}
 	\centering
   \begin{tikzpicture}
@@ -150,6 +150,31 @@ Figure~\ref{fig:tikz} show an example of how to use TikZ.
   \caption{Example of TikZ figure.}
   \label{fig:tikz}
   \end{figure}
+
+Figure~\ref{fig:pgffigure} shows an example of how to plot with PGFPlots
+\begin{figure}
+	\begin{tikzpicture}
+		\begin{axis}
+			[
+				axis x line=bottom,
+				axis y line=left,
+				enlarge y limits={0.05, upper},  % Enlarge y limits by 10%
+				enlarge x limits={0.05, upper},  % Enlarge x limits by 10%
+				xtick = {0,...,5},
+				xmin = 0,
+				ymin = 0,
+				width=\textwidth,
+				height=0.33\textheight,
+				xlabel=$x$,
+				ylabel=$f(x)$,
+				]
+				\addplot[thick, color=black, mark=none] table [x=a, y=b, col sep=comma] {./data/plot.csv};
+				\legend{My Line $f(x)$}
+		\end{axis}
+	\end{tikzpicture}
+	\caption{My Caption.}
+	\label{fig:pgffigure}
+\end{figure}
 
 
 % Bibliography
