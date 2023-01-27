@@ -29,10 +29,9 @@
 \makeglossaries
 
 % Todos
-\usepackage[textsize=tiny]{todonotes}
-\newcommand{\mynote}[1]{\todo[inline, caption={}]{ {{cookiecutter.author}} : #1}}
-\newcommand{\mynoteside}[1]{\todo[caption={}]{ {{cookiecutter.author}} : #1}}
-\newcommand{\todofigure}[0]{\missingfigure[figwidth=\textwidth, figcolor=white]{} }
+\newcommand{\mynote}[1]{}
+% Comment to hide notes
+\renewcommand{\mynote}[1]{\textcolor{cyan}{\textbf{[{{cookiecutter.author}}: #1]}}}
 
 % Definitions
 \input{definitions.tex}
@@ -78,8 +77,6 @@ See {\tt definitions.tex} to get familiar and possibly add new math definitions.
 
 
 \mynote{Here is another todo note.}
-
-\todofigure
 
 \subsection{Theoretical results}%
 \label{sub:theoretical_results}
