@@ -22,7 +22,7 @@
 \usepackage{adjustbox}  % To adjust table length
 
 % Hyperreferences
-\usepackage{hyperref}
+\usepackage[colorlinks=true, citecolor=cyan, linkcolor=cyan, urlcolor=cyan]{hyperref}
 
 % Acronyms
 \usepackage[xindy, acronyms]{glossaries}   % Glossaries and Acronyms
@@ -31,7 +31,7 @@
 % Todos
 \newcommand{\mynote}[1]{}
 % Comment to hide notes
-\renewcommand{\mynote}[1]{\textcolor{myblue}{\textbf{[{{cookiecutter.author}}: #1]}}}
+\renewcommand{\mynote}[1]{\textcolor{blue}{\textbf{[{{cookiecutter.author}}: #1]}}}
 
 % Definitions
 \input{definitions.tex}
