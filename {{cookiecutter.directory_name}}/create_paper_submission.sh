@@ -29,7 +29,7 @@ mkdir $TEMP_FOLDER
 latexpand --keep-comments --empty-comments --expand-bbl $NAME.bbl $NAME.tex > $TEMP_FOLDER/$NAME.tex
 
 # Define an array of file extensions
-declare -a extensions=("cls" "sty" "bbl" "bst" "pdf" "csv")
+declare -a extensions=("cls" "sty" "bbl" "bst" "pdf" "csv" "clo")
 
 # Loop through the array
 for ext in "${extensions[@]}"; do
