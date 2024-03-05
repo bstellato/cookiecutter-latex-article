@@ -26,10 +26,10 @@ rm -rf $TEMP_FOLDER
 mkdir $TEMP_FOLDER
 
 # Flatten file
-latexpand --keep-comments --empty-comments --expand-bbl $NAME.bbl $NAME.tex > $TEMP_FOLDER/$NAME.tex
+latexpand --expand-bbl $NAME.bbl $NAME.tex > $TEMP_FOLDER/$NAME.tex
 
 # Define an array of file extensions
-declare -a extensions=("cls" "sty" "bbl" "bst" "pdf" "csv" "clo")
+declare -a extensions=("cls" "sty" "bst" "pdf" "csv" "clo")
 
 # Loop through the array
 for ext in "${extensions[@]}"; do
