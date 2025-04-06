@@ -21,7 +21,13 @@
 
 % Tables
 \usepackage{csvsimple}	% reading CSV files in tables
+
 \usepackage{booktabs}   % Nicer Tables
+% avoid applying arraystretch to tables
+\let\oldtabular\tabular
+\let\endoldtabular\endtabular
+\renewenvironment{tabular}{\renewcommand\arraystretch{1.0}\oldtabular}{\endoldtabular}
+
 \usepackage{adjustbox}  % To adjust table length
 
 % Hyperreferences
