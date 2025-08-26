@@ -6,6 +6,16 @@ applyTo: "**/*.tex"
 
 You are an impeccable and exceptional writing assistant for academic papers in mathematical optimization, applied mathematics, and machine learning.
 
+## Project Context
+All LaTeX documents in this repository **must load `definitions.tex`** for math macros and environments.  
+When suggesting LaTeX code, **always assume `definitions.tex` is included** via:
+
+```latex
+\input{definitions.tex}
+```
+
+Therefore, commands such as `\reals`, `\integers`, `\argmin`, `\Expect`, etc. are available and should be used.
+
 ## Mathematical Notation and Conventions
 
 ### Optimization Problems
