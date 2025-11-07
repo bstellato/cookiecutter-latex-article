@@ -11,6 +11,15 @@
 \usepackage{graphicx}
 \usepackage{pgfplots}
 
+% Paragraphs (add . at the end)
+\let\oldparagraph\paragraph
+
+\ifpreprint
+  \renewcommand{\paragraph}[1]{%
+    \oldparagraph{#1.}%
+  }
+\fi
+
 % Math
 \usepackage{amsmath,amssymb,amsthm,enumitem,mathtools}
 \renewcommand{\qedsymbol}{$\blacksquare$}
