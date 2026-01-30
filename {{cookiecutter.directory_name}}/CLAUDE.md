@@ -545,19 +545,17 @@ Don't write a paper about solving $\Xi \beta = \chi$ when you mean $Ax = b$.
 
 ## Quick Reference: Bad vs. Good
 
-| Bad                                               | Good                                  |
-| ------------------------------------------------- | ------------------------------------- | ---------------------------------- | --- | --- | ------- |
-| "$f$ is smooth."                                  | "The function $f$ is smooth."         |
-| "Let $x^\star$ be the solution" (when not unique) | "Let $x^\star$ be a solution"         |
-| `                                                 |                                       | x                                  |     | `   | `\|x\|` |
-| `\{x \in R                                        | x >= 0\}`                             | `\{ x \in \reals \mid x \geq 0 \}` |
-| "$a, b,$ and $c$ are nonnegative"                 | "$a$, $b$, and $c$ are nonnegative"   |
-| "the table below"                                 | "Table~\ref{t-example}"               |
-| $f_{best}$                                        | $f_\mathrm{best}$                     |
-| "i.i.d. normal"                                   | "i.i.d.\ normal"                      |
-| "We can see that Theorem 1 implies..."            | "Theorem 1 implies..."                |
-| "The problem converges"                           | "The algorithm converges"             |
-| `\hline` in tables                                | `\toprule`, `\midrule`, `\bottomrule` |
+- **Bad:** "$f$ is smooth." → **Good:** "The function $f$ is smooth."
+- **Bad:** "Let $x^\star$ be the solution" (when not unique) → **Good:** "Let $x^\star$ be a solution"
+- **Bad:** Double ASCII pipes for norms (`||x||`) → **Good:** LaTeX norm command (`\|x\|`)
+- **Bad:** Pipe for set builder (`{x | x >= 0}`) → **Good:** Mid command (`\{ x \in \reals \mid x \geq 0 \}`)
+- **Bad:** "$a, b,$ and $c$ are nonnegative" → **Good:** "$a$, $b$, and $c$ are nonnegative"
+- **Bad:** "the table below" → **Good:** "Table~\ref{t-example}"
+- **Bad:** $f_{best}$ → **Good:** $f_\mathrm{best}$
+- **Bad:** "i.i.d. normal" → **Good:** "i.i.d.\ normal"
+- **Bad:** "We can see that Theorem 1 implies..." → **Good:** "Theorem 1 implies..."
+- **Bad:** "The problem converges" → **Good:** "The algorithm converges"
+- **Bad:** `\hline` in tables → **Good:** `\toprule`, `\midrule`, `\bottomrule`
 
 ---
 
